@@ -23,22 +23,6 @@ class TestableBookingScheduler(BookingScheduler):
         return datetime.strptime(self._date_time, "%Y/%m/%d %H:%M")
 
 
-class SundayBookingScheduler(BookingScheduler):
-    def __init__(self, capacity_per_hour):
-        super().__init__(capacity_per_hour)
-
-    def get_now(self):
-        return datetime.strptime("2021/03/28 07:00", "%Y/%m/%d %H:%M")
-
-
-class MondayBookingScheduler(BookingScheduler):
-    def __init__(self, capacity_per_hour):
-        super().__init__(capacity_per_hour)
-
-    def get_now(self):
-        return datetime.strptime("2021/06/03 07:00", "%Y/%m/%d %H:%M")
-
-
 class BookingSchedulerTest(unittest.TestCase):
     def setUp(self):
         self.booking_scheduler = BookingScheduler(CAPACITY_PER_HOUR)
